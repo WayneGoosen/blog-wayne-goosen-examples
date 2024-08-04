@@ -1,0 +1,22 @@
+# Overview
+
+This contains the source code for the following blog post [Platform Engineering: Transition from Docker Compose to Score](#)
+
+## Getting Started
+
+```bash
+docker-compose up
+```
+
+## Score
+
+[Getting Started](https://docs.score.dev/docs/get-started/)
+[Install](https://docs.score.dev/docs/score-implementation/score-compose/#installation)
+[Example](https://github.com/score-spec/score-compose/blob/main/examples/08-service-port-resource/README.md)
+
+```bash
+score-compose init
+score-compose generate score.yaml
+score-compose generate score.yaml --build=aspnetcore=. --publish 5348:aspnetcore:5348
+```
+
