@@ -2,9 +2,18 @@ services:
   aspnetcoreapp:
     image: aspnetcoreapp
     build:
-      context: .
+      context: ./aspnetcoreapp
       dockerfile: Dockerfile
     ports:
       - "5348:5348"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+  backend:
+    image: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8002:8002"
+    environment:
+      - ENVIRONMENT=Development

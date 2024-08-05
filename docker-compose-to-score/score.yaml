@@ -5,12 +5,19 @@ metadata:
 
 service:
   ports:
-    web:
+    aspnetcore:
       port: 5348
       targetPort: 5348
+    backend:
+      port: 8002
+      targetPort: 8002
 
 containers:
   aspnetcore:
-    image: .
+    image: ./aspnetcore
     variables:
       "ASPNETCORE_ENVIRONMENT": Development
+  backend:
+    image: ./backend
+    variables:
+      "ENVIRONMENT": Development
