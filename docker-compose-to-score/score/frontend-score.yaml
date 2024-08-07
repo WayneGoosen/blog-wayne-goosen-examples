@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: frontend
+
+service:
+  ports:
+    aspnetcore:
+      port: 5348
+      targetPort: 5348
+
+containers:
+  aspnetcore:
+    image: ./aspnetcore
+    variables:
+      "ASPNETCORE_ENVIRONMENT": Development

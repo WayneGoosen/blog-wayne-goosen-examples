@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: backend
+
+service:
+  ports:
+    backend:
+      port: 8002
+      targetPort: 8002
+
+containers:
+  backend:
+    image: ./backend
+    variables:
+      "ENVIRONMENT": Development
