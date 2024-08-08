@@ -5,12 +5,12 @@ metadata:
 
 service:
   ports:
-    aspnetcore:
+    frontend:
       port: 5348
       targetPort: 5348
 
 containers:
-  aspnetcore:
+  frontend:
     image: ./aspnetcore
     variables:
       "ASPNETCORE_ENVIRONMENT": Development

@@ -1,0 +1,39 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: frontend
+
+service:
+  ports:
+    frontend:
+      port: 5348
+      targetPort: 5348
+    backend:
+      port: 8002
+      targetPort: 8002
+
+containers:
+  frontend:
+    image: ./aspnetcore
+    variables:
+      "ASPNETCORE_ENVIRONMENT": Development
+  backend:
+    image: ./backend
+    variables:
+      "ENVIRONMENT": Development
+
+resources:
+  dns:
+    type: dns
+  route:
+    type: route
+    params:
+      path: /
+      host: ${resources.dns.host}
+      port: frontend
+  route2:
+    type: route
+    params:
+      path: /
+      host: ${resources.dns.host}
+      port: backend
