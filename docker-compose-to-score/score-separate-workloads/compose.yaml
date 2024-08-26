@@ -1,0 +1,22 @@
+name: score-separate-workloads
+services:
+    backend-backend:
+        annotations:
+            compose.score.dev/workload-name: backend
+        environment:
+            ENVIRONMENT: Development
+        hostname: backend
+        image: ./backend
+        ports:
+            - target: 8002
+              published: "8002"
+    frontend-frontend:
+        annotations:
+            compose.score.dev/workload-name: frontend
+        environment:
+            ASPNETCORE_ENVIRONMENT: Development
+        hostname: frontend
+        image: ./aspnetcore
+        ports:
+            - target: 5348
+              published: "5348"
