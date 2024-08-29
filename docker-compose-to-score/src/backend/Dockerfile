@@ -3,17 +3,15 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY *.sln .
-COPY *.csproj ./
-RUN dotnet restore
-
-# copy everything else and build app
 COPY . ./
-WORKDIR /source
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet restore Example.Api.sln
+RUN dotnet publish ./src/Web/Web.csproj -c release -o /app --no-restore
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "aspnetcoreapp.dll"]
+
+EXPOSE 8002
+USER $APP_UID
+ENTRYPOINT ["dotnet", "eExample.Api.Web.dll"]

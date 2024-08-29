@@ -1,0 +1,18 @@
+name: app-manually-created
+services:
+    backend:
+        build:
+            context: ./backend
+        environment:
+            ASPNETCORE_ENVIRONMENT: Development
+        ports:
+        - target: 8002
+          published: "8002"
+    frontend:
+        build:
+            context: ./frontend
+        environment:
+            ENVIRONMENT: Development
+        ports:
+        - target: 3233
+          published: "3000"
