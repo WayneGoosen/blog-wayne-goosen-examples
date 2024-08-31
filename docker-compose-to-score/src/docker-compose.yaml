@@ -5,14 +5,27 @@ services:
             context: ./backend
         environment:
             ASPNETCORE_ENVIRONMENT: Development
+        depends_on:
+            - db
         ports:
-        - target: 8002
-          published: "8002"
+        - target: 8080
+          published: "8082"
+
     frontend:
         build:
             context: ./frontend
         environment:
             ENVIRONMENT: Development
+        depends_on:
+            - backend
         ports:
-        - target: 3233
-          published: "3000"
+        - target: 3000
+          published: "3233"
+
+    db:
+      image: mcr.microsoft.com/mssql/server:2022-latest
+      env_file:
+        - ./backend/.env
+      ports:
+        - target: 1433
+          published: "1433"

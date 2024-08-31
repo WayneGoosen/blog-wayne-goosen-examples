@@ -14,4 +14,4 @@ COPY --from=build /app ./
 
 EXPOSE 8002
 USER $APP_UID
-ENTRYPOINT ["dotnet", "eExample.Api.Web.dll"]
+ENTRYPOINT ["dotnet", "Example.Api.Web.dll"]
