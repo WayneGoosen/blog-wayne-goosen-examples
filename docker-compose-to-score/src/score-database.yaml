@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: database
+
+service:
+  ports:
+    frontend:
+      port: 1433
+      targetPort: 1433
+
+containers:
+  frontend:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    variables:
+      ENVIRONMENT: UAT

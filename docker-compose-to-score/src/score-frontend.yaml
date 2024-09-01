@@ -1,0 +1,16 @@
+apiVersion: score.dev/v1b1
+
+metadata:
+  name: frontend
+
+service:
+  ports:
+    frontend:
+      port: 3233
+      targetPort: 3000
+
+containers:
+  frontend:
+    image: ./frontend
+    variables:
+      ENVIRONMENT: UAT

@@ -4,7 +4,7 @@ services:
         build:
             context: ./backend
         environment:
-            ASPNETCORE_ENVIRONMENT: Development
+            ASPNETCORE_ENVIRONMENT: UAT
         depends_on:
             - db
         ports:
@@ -15,7 +15,7 @@ services:
         build:
             context: ./frontend
         environment:
-            ENVIRONMENT: Development
+            ENVIRONMENT: UAT
         depends_on:
             - backend
         ports:
