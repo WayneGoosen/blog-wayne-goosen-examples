@@ -5,12 +5,12 @@ metadata:
 
 service:
   ports:
-    frontend:
+    database:
       port: 1433
       targetPort: 1433
 
 containers:
-  frontend:
+  database:
     image: mcr.microsoft.com/mssql/server:2022-latest
     variables:
       ENVIRONMENT: UAT

@@ -11,6 +11,6 @@ service:
 
 containers:
   backend:
-    image: ./backend
+    image: default
     variables:
-      "ENVIRONMENT": Development
+      "ENVIRONMENT": UAT

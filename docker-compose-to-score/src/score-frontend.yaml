@@ -11,6 +11,6 @@ service:
 
 containers:
   frontend:
-    image: ./frontend
+    image: default
     variables:
       ENVIRONMENT: UAT
